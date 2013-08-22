@@ -1,0 +1,26 @@
+;Sample program for demonstrating 8085 assembler
+EXTERN QWR
+EXTERN ASD
+MACRO
+XXX a,b,c
+MOV a,b
+MOV b,c
+CALL QWR
+MOV c,a
+MEND
+MACRO
+XYZ a
+DOUBLE a
+MEND
+START: CCF
+XXX A,B,C
+XYZ b
+SWAP C,D
+LSTART
+ASS 1,2,3
+MOV b,c
+CCF
+CALL END
+LEND
+HLT
+END: CALL START
